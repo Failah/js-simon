@@ -62,14 +62,47 @@ function numberVanish() {
 function numberCheck() {
     console.log('Do you remember all numbers?');
 
-    for (i = 1; i <= 5; i++) {
-        let guessNumber = 0;
-        guessNumber = parseInt(prompt('Type the ' + i + '° number!'))
+    // for (i = 1; i <= 5; i++) {
+    //     let guessNumber = 0;
+    //     guessNumber = parseInt(prompt('Type the ' + i + '° number!'));
 
-        if (numbersArray.includes(guessNumber)) {
+    //     if (numbersArray.includes(guessNumber)) {
+    //         guessNumbersArray.push(guessNumber);
+    //     } else { }
+    // }
+
+    let j = 1;
+
+    let guessNumber = 0;
+
+    while (j <= 5) {
+        guessNumber = parseInt(prompt('Type the ' + j + '° number!'));
+
+        if (isNaN(guessNumber) || guessNumber === undefined) {
+
+            alert('You must type a number!');
+
+        } if (!isNaN(guessNumber) && guessNumber !== undefined && numbersArray.includes(guessNumber)) {
+
             guessNumbersArray.push(guessNumber);
-        } else { }
+
+            j++;
+
+        } if (!isNaN(guessNumber) && guessNumber !== undefined && !numbersArray.includes(guessNumber)) {
+
+            j++;
+        }
     }
 
-    alert('You guessed right ' + guessNumbersArray.length + ' numbers! They are: ' + guessNumbersArray);
+    console.log('You guessed right ' + guessNumbersArray.length + ' numbers! They are: ' + guessNumbersArray);
+
+    alert('You guessed right ' + guessNumbersArray.length + ' number(s)! They are: ' + guessNumbersArray);
+
+    console.log('');
+
+    numbersArray = [];
+
+    guessNumbersArray = [];
+
+    rndNumbersArea.classList.remove('d-none');
 }
