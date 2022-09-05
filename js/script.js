@@ -19,6 +19,8 @@ let randomNumber = 0;
 
 let numbersArray = [];
 
+let guessNumbersArray = [];
+
 const numberGeneratorButton = document.getElementById('num-generator');
 
 const rndNumbersArea = document.getElementById('num-area');
@@ -42,14 +44,32 @@ numberGeneratorButton.addEventListener('click',
         console.log('The randomly generated numbers are: ', numbersArray);
 
         // timer di 30 secondi alla fine del quale i numeri generati spariscono
-        setTimeout(timer, 2000);
+        setTimeout(numberVanish, 2000);
+
+        setTimeout(numberCheck, 2050);
     })
 
 
 
 // FUNCTIONS
 
-function timer() {
+function numberVanish() {
     rndNumbersArea.classList.add('d-none');
+
     console.log('Numbers vanishing!');
+}
+
+function numberCheck() {
+    console.log('Do you remember all numbers?');
+
+    for (i = 1; i <= 5; i++) {
+        let guessNumber = 0;
+        guessNumber = parseInt(prompt('Type the ' + i + '° number!'))
+
+        if (numbersArray.includes(guessNumber)) {
+            guessNumbersArray.push(guessNumber);
+        } else { }
+    }
+
+    alert('You guessed right ' + guessNumbersArray.length + ' numbers! They are: ' + guessNumbersArray);
 }
