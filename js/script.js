@@ -96,19 +96,25 @@ function numberCheck() {
 
             alert('You must type a number!');
 
+
+        } if (!isNaN(guessNumber) && guessNumber !== undefined && !numbersArray.includes(guessNumber)) {
+
+            j++;
+
         } if (!isNaN(guessNumber) && guessNumber !== undefined && numbersArray.includes(guessNumber)) {
 
             guessNumbersArray.push(guessNumber);
 
-            j++;
+            // rimuove un guessed number dall'array dei 5 numeri generati in modo da evitare ripetizioni (vittorie multiple dichiarando lo stesso numero)
+            let indexRemover = numbersArray.indexOf(guessNumber);
 
-        } if (!isNaN(guessNumber) && guessNumber !== undefined && !numbersArray.includes(guessNumber)) {
+            numbersArray.splice(indexRemover, 1);
 
             j++;
         }
     }
 
-    console.log('You guessed right ' + guessNumbersArray.length + ' numbers! They are: ' + guessNumbersArray);
+    console.log('You guessed right ' + guessNumbersArray.length + ' number(s)! They are: ' + guessNumbersArray);
 
     console.log('');
 
