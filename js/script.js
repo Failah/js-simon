@@ -31,15 +31,29 @@ numberGeneratorButton.addEventListener('click',
 
         rndNumbersArea.innerHTML = '';
 
-        // genera 5 numeri casuali tra 1 e 10
-        for (i = 1; i <= 5; i++) {
+        // genera 5 numeri casuali tra 1 e 10 univoci
 
+        let k = 1;
+
+        while (k <= 5) {
             randomNumber = Math.floor(Math.random() * 10) + 1;
 
-            numbersArray.push(randomNumber);
-
-            rndNumbersArea.innerHTML += '<div>' + randomNumber + '</div>';
+            if (!numbersArray.includes(randomNumber)) {
+                numbersArray.push(randomNumber);
+                rndNumbersArea.innerHTML += '<div>' + randomNumber + '</div>';
+                k++;
+            } else { }
         }
+
+        // genera 5 numeri casuali tra 1 e 10
+        // for (i = 1; i <= 5; i++) {
+
+        //     randomNumber = Math.floor(Math.random() * 10) + 1;
+
+        //     numbersArray.push(randomNumber);
+
+        //     rndNumbersArea.innerHTML += '<div>' + randomNumber + '</div>';
+        // }
 
         console.log('The randomly generated numbers are: ', numbersArray);
 
