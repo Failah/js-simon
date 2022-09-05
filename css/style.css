@@ -18,10 +18,20 @@ body {
     margin: 0 auto;
 }
 
+.d-none {
+    display: none !important;
+}
+
+.row {
+    display: flex;
+}
+
 
 /* contents */
 
-
+#num-area {
+    column-gap: 20px;
+}
 
 
 /* effects */

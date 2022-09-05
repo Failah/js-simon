@@ -19,12 +19,37 @@ let randomNumber = 0;
 
 let numbersArray = [];
 
-// genera 5 numeri casuali tra 1 e 10
-for (i = 1; i <= 5; i++) {
+const numberGeneratorButton = document.getElementById('num-generator');
 
-    randomNumber = Math.floor(Math.random() * 10) + 1;
+const rndNumbersArea = document.getElementById('num-area');
 
-    numbersArray.push(randomNumber);
+
+numberGeneratorButton.addEventListener('click',
+    function () {
+
+        rndNumbersArea.innerHTML = '';
+
+        // genera 5 numeri casuali tra 1 e 10
+        for (i = 1; i <= 5; i++) {
+
+            randomNumber = Math.floor(Math.random() * 10) + 1;
+
+            numbersArray.push(randomNumber);
+
+            rndNumbersArea.innerHTML += '<div>' + randomNumber + '</div>';
+        }
+
+        console.log('The randomly generated numbers are: ', numbersArray);
+
+        // timer di 30 secondi alla fine del quale i numeri generati spariscono
+        setTimeout(timer, 2000);
+    })
+
+
+
+// FUNCTIONS
+
+function timer() {
+    rndNumbersArea.classList.add('d-none');
+    console.log('Numbers vanishing!');
 }
-
-console.log(numbersArray);
