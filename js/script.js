@@ -96,9 +96,9 @@ function numberCheck() {
 
     console.log('You guessed right ' + guessNumbersArray.length + ' numbers! They are: ' + guessNumbersArray);
 
-    alert('You guessed right ' + guessNumbersArray.length + ' number(s)! They are: ' + guessNumbersArray);
-
     console.log('');
+
+    rndNumbersArea.innerHTML = ('You guessed right ' + guessNumbersArray.length + ' number(s)! They are: ' + guessNumbersArray);
 
     numbersArray = [];
 

@@ -8,6 +8,7 @@
 
 body {
     font-family: sans-serif;
+    background-color: peru;
 }
 
 
@@ -26,12 +27,54 @@ body {
     display: flex;
 }
 
+.column {
+    display: flex;
+    flex-direction: column;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.align-center {
+    align-items: center;
+}
+
 
 /* contents */
 
+.info-box {
+    color: darkblue;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-align: center;
+    width: 70vw;
+    margin-top: 50px;
+}
+
+#num-generator {
+    margin: 40px 0px;
+    padding: 15px 25px;
+    border: 1px solid black;
+    border-radius: 20px;
+    font-size: 1.2rem;
+    opacity: 75%;
+}
+
 #num-area {
     column-gap: 20px;
+    background-color: khaki;
+    padding: 20px;
 }
 
 
 /* effects */
+
+#num-generator:active {
+    transform: scale(0.95);
+}
+
+#num-generator:hover {
+    opacity: 100%;
+    cursor: pointer;
+}
